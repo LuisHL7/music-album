@@ -35,6 +35,8 @@
     <string name="ineverloveda"><![CDATA[Aretha Franklin’s Atlantic debut is the place where gospel music collided with R&B and rock & roll and became soul. The Detroit-born preacher’s daughter was about $80,000 in debt to her previous label, Columbia, when Atlantic producer Jerry Wexler signed her in 1966. “I took her to church,” Wexler said, “sat her down at the piano, and let her be herself.”  Recording with the best session men at FAME Studios in Muscle Shoals, Alabama, she promptly cut the album’s title hit, a slow-fire ballad of ferocious sexuality. The historic moment, of course, was her storefront-church makeover of Otis Redding’s “Respect,” which became Franklin’s first Number One pop single, prompting Redding to exclaim, “I just lost my song.” Soon, it would be the new marching anthem of the women’s and civil rights movements. “Women did, and still do, need equal rights,” Franklin said decades later. “We’re doing the same job, we expect the same pay, and the same respect.” She reinforced that feminism on “Do Right Woman, Do Right Man” and had the guts to wring more pathos from Sam Cooke’s civil rights anthem, “A Change Is Gonna Come,” than any other singer who has attempted that landmark song. Never Loved a Man began an unparalleled run of classic albums for Franklin; it’s the sound of the Queen of Soul claiming her crown.]]></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete">Delete</string>
+    <string name="title_author">%1$s - %2$s</string>
 
 
 </resources>

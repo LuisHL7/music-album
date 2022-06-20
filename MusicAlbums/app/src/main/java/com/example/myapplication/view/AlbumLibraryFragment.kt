@@ -39,7 +39,7 @@ class AlbumLibraryFragment : Fragment() {
             android.R.layout.simple_list_item_1,
             Album.Genero.values()
         ).apply { setDropDownViewResource(R.layout.item_spinner) }
-        
+
         binding.spGenero.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 albumViewModel.genre.postValue( when(position){

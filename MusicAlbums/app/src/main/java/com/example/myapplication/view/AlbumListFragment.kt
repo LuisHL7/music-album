@@ -42,7 +42,7 @@ class AlbumListFragment : Fragment() {
         val recyclerView = binding.recyclerAlbum
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         albumViewModel.genre.observe(viewLifecycleOwner) {
-            recyclerView.adapter = AlbumAdapter(albumViewModel.listAlbum(it))
+            recyclerView.adapter = AlbumAdapter(albumViewModel.listAlbum(it), albumViewModel)
         }
     }
 
