@@ -7,9 +7,12 @@
         <entry key="..\:/Portafolio/Kotlin/music-album/MusicAlbums/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1835" />
         <entry key="..\:/Portafolio/Kotlin/music-album/MusicAlbums/app/src/main/res/layout/activity_main.xml" value="0.13360507246376813" />
         <entry key="..\:/Portafolio/Kotlin/music-album/MusicAlbums/app/src/main/res/layout/content_main.xml" value="0.13360507246376813" />
+        <entry key="..\:/Portafolio/Kotlin/music-album/MusicAlbums/app/src/main/res/layout/fragment_album_library.xml" value="0.1" />
         <entry key="..\:/Portafolio/Kotlin/music-album/MusicAlbums/app/src/main/res/layout/fragment_first.xml" value="0.13360507246376813" />
         <entry key="..\:/Portafolio/Kotlin/music-album/MusicAlbums/app/src/main/res/layout/fragment_second.xml" value="0.13360507246376813" />
-        <entry key="..\:/Portafolio/Kotlin/music-album/MusicAlbums/app/src/main/res/layout/item_list.xml" value="0.33" />
+        <entry key="..\:/Portafolio/Kotlin/music-album/MusicAlbums/app/src/main/res/layout/fragment_third.xml" value="0.1" />
+        <entry key="..\:/Portafolio/Kotlin/music-album/MusicAlbums/app/src/main/res/layout/item_list.xml" value="0.25" />
+        <entry key="..\:/Portafolio/Kotlin/music-album/MusicAlbums/app/src/main/res/layout/item_spinner.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -2,7 +2,7 @@
 <resources>
     <string-array name="genero" >
         <item />
-        <item>Rock</item>
+        <item>hola</item>
         <item>Blues</item>
         <item>Jazz</item>
     </string-array>
