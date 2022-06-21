@@ -37,7 +37,7 @@ class AlbumDetailFragment : Fragment() {
                 binding.tvDescription.setText(album?.descRes!!)
                 binding.btnRemove.setOnClickListener {
                     albumViewModel.listAlbum(genre).remove(album)
-                    findNavController().navigate(AlbumDetailFragmentDirections.actionAlbumDetailFragmentToSecondFragment())
+                    findNavController().popBackStack()
                 }
             }
 
