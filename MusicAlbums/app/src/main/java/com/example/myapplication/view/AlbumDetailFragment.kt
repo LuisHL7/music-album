@@ -29,19 +29,21 @@ class AlbumDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        albumViewModel.genre.observe(viewLifecycleOwner) { genre ->
+
             albumViewModel.id.observe(viewLifecycleOwner){ id ->
-                val album:Album? = albumViewModel.detailAlbum(id,albumViewModel.listAlbum(genre))
+                val album:Album? = albumViewModel.detailAlbum(id,albumViewModel.listAlbum(albumViewModel.genre.value!!))
                 binding.tvTitle.text = getString(R.string.title_author, album?.titulo, album?.autor)
                 binding.imageMusic.setImageResource(album?.imageRes ?: IMAGE_NO_AVALIABLE_RESOURCE)
                 binding.tvDescription.setText(album?.descRes!!)
+
                 binding.btnRemove.setOnClickListener {
-                    albumViewModel.listAlbum(genre).remove(album)
+                    albumViewModel.listAlbum(albumViewModel.genre.value!!).remove(album)
                     findNavController().popBackStack()
                 }
             }
 
-        }
+
+
     }
 
 }

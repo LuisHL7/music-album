@@ -3,6 +3,7 @@ package com.example.myapplication.view
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
          when (item.itemId) {
-            R.id.action_reset ->AlertDialog.Builder(this).setMessage("Se ha restaurado la biblioteca")
+            R.id.action_reset -> AlertDialog.Builder(this).setMessage("Se ha restaurado la biblioteca")
                 .setTitle("Reinicio").create().show()
 
         }

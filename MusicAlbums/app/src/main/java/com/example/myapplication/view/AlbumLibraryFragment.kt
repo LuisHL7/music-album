@@ -37,28 +37,25 @@ class AlbumLibraryFragment : Fragment() {
         binding.spGenero.adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_list_item_1,
-            Album.Genero.values()
+            arrayOf("", *Album.Genero.values())
         ).apply { setDropDownViewResource(R.layout.item_spinner) }
 
-        binding.spGenero.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                albumViewModel.genre.postValue( when(position){
-                    0 -> "Rock"
-                    1 -> "Blues"
-                    2 -> "Jazz"
-                    else -> throw RuntimeException("Option incorrectly")
-                })
-            }
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-        }
 
 
         binding.btnIr.setOnClickListener {
+            albumViewModel.genre.postValue(
+                when (binding.spGenero.selectedItemPosition) {
+                    1 -> Album.Genero.Rock
+                    2 -> Album.Genero.Blues
+                    3 -> Album.Genero.Jazz
+                    else -> genderNotValid()
+                }
+            )
             findNavController().navigate(AlbumLibraryFragmentDirections.actionFirstFragmentToSecondFragment())
         }
     }
+
+    private fun genderNotValid(): Nothing = throw RuntimeException("Option incorrectly")
 
     override fun onDestroyView() {
         super.onDestroyView()

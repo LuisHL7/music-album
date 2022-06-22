@@ -8,14 +8,14 @@ import com.example.myapplication.model.dataSource
 class AlbumViewModel : ViewModel() {
 
     val albumModel = MutableLiveData<Album>()
-    var genre = MutableLiveData("")
+    var genre = MutableLiveData<Album.Genero>()
     var id = MutableLiveData(0)
 
-    fun listAlbum(genre: String): MutableList<Album> {
+    fun listAlbum(genre: Album.Genero): MutableList<Album> {
         return when (genre) {
-            "Rock" -> dataSource.listaRock
-            "Jazz" -> dataSource.listaJazz
-            "Blues" -> dataSource.listaBlues
+            Album.Genero.Rock -> dataSource.listaRock
+            Album.Genero.Jazz -> dataSource.listaJazz
+            Album.Genero.Blues -> dataSource.listaBlues
             else -> throw RuntimeException("Option undefined")
         }
     }
