@@ -10,7 +10,6 @@ import com.example.myapplication.viewModel.AlbumViewModel
 class AlbumAdapter(private val albumList: MutableList<Album>, private val albumViewModel: AlbumViewModel) : RecyclerView.Adapter<AlbumViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
         return AlbumViewHolder(ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 

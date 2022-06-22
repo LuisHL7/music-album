@@ -13,12 +13,22 @@ class Album(val id: Int, val titulo: String, val autor: String, val imageRes: In
 }
 
 object dataSource {
-    var listaRock = getListadoRock()
-    var listaBlues = getListadoBlues()
-    var listaJazz = getListadoJazz()
+    var listRock = getListadoRock()
+    var listBlues = getListadoBlues()
+    var listJazz = getListadoJazz()
 
+    fun reset() {
+        listRock = getListadoRock()
+        listBlues = getListadoBlues()
+        listJazz = getListadoJazz()
+    }
 
-//...
+    fun getlistaFromGenero(genero: Album.Genero) = when (genero) {
+        Album.Genero.Rock -> listRock
+        Album.Genero.Blues -> listBlues
+        Album.Genero.Jazz -> listJazz
+        else -> throw RuntimeException("The genre does not exist")
+    }
 
 }
 

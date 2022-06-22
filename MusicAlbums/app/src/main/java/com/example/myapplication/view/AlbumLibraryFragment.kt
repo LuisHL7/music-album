@@ -11,7 +11,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentAlbumLibraryBinding
-import com.example.myapplication.model.Album
 import com.example.myapplication.viewModel.AlbumViewModel
 
 
@@ -22,7 +21,7 @@ class AlbumLibraryFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
 
         _binding = FragmentAlbumLibraryBinding.inflate(inflater, container, false)
@@ -34,21 +33,25 @@ class AlbumLibraryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.spGenero.adapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_list_item_1,
-            Album.Genero.values()
+        binding.spGenero.adapter = ArrayAdapter.createFromResource(
+            requireContext(), R.array.genero, android.R.layout.simple_list_item_1
         ).apply { setDropDownViewResource(R.layout.item_spinner) }
 
         binding.spGenero.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                albumViewModel.genre.postValue( when(position){
-                    0 -> "Rock"
-                    1 -> "Blues"
-                    2 -> "Jazz"
-                    else -> throw RuntimeException("Option incorrectly")
-                })
+                if (position > 0) {
+                    binding.btnIr.visibility = View.VISIBLE
+                    albumViewModel.genre.postValue(when (position) {
+                        1 -> "Rock"
+                        2 -> "Blues"
+                        3 -> "Jazz"
+                        else -> throw RuntimeException("Option incorrectly")
+                    })
+                } else {
+                    binding.btnIr.visibility = View.GONE
+                }
             }
+
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 TODO("Not yet implemented")
             }
