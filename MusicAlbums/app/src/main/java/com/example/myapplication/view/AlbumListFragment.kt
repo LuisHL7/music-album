@@ -41,8 +41,8 @@ class AlbumListFragment : Fragment() {
     private fun initRecyclerView() {
         val recyclerView = binding.recyclerAlbum
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        albumViewModel.genre.observe(viewLifecycleOwner) {
-            recyclerView.adapter = AlbumAdapter(albumViewModel.getAlbumList(it), albumViewModel)
+        albumViewModel.albumList.observe(viewLifecycleOwner) {
+            recyclerView.adapter = AlbumAdapter(it, albumViewModel)
         }
     }
 

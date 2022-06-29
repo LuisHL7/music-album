@@ -48,12 +48,21 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-         when (item.itemId) {
-            R.id.action_reset -> AlertDialog.Builder(this).setMessage("The library has been restored")
-                .setTitle("Reset").create().show()
+         return when (item.itemId) {
+            R.id.action_reset -> {
+                reset()
+                true
+            }
+             else -> super.onOptionsItemSelected(item)
         }
+
+    }
+
+    private fun reset() {
         albumViewModel.reset()
-        return super.onOptionsItemSelected(item)
+        AlertDialog.Builder(this).setMessage("The library has been restored")
+            .setTitle("Reset").create().show()
+        navController.graph = navController.navInflater.inflate(R.navigation.nav_graph)
     }
 
     override fun onSupportNavigateUp(): Boolean {

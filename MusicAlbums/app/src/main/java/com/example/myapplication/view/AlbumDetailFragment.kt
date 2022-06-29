@@ -1,15 +1,14 @@
 package com.example.myapplication.view
 
 import android.os.Bundle
+import android.system.Os.remove
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentAlbumDetailBinding
-import com.example.myapplication.model.Album
 import com.example.myapplication.model.DataSource
 import com.example.myapplication.model.IMAGE_NO_AVALIABLE_RESOURCE
 import com.example.myapplication.viewModel.AlbumViewModel
@@ -37,9 +36,9 @@ class AlbumDetailFragment : Fragment() {
                 binding.tvDescription.setText(album.descRes)
 
                 binding.btnRemove.setOnClickListener {
-                    DataSource.listAlbum.remove(album)
-                    albumViewModel.albumList.value = DataSource.listAlbum
-                    findNavController().popBackStack()
+                    albumViewModel.albumList.value!!.remove(album)
+//                    findNavController().popBackStack()
+                    findNavController().navigateUp()
                 }
             }
 

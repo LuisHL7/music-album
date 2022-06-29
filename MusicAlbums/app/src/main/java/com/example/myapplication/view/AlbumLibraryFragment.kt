@@ -39,14 +39,12 @@ class AlbumLibraryFragment : Fragment() {
             arrayOf("", *Album.Genre.values()) // recoge los valores del array y almacena sus valores
         ).apply { setDropDownViewResource(R.layout.item_spinner) }
 
-
-
         binding.btnIr.setOnClickListener {
-            albumViewModel.genre.postValue(
+            albumViewModel.albumList.postValue(
                 when (binding.spGenero.selectedItemPosition) {
-                    1 -> Album.Genre.Rock
-                    2 -> Album.Genre.Blues
-                    3 -> Album.Genre.Jazz
+                    1 -> albumViewModel.listByGenre(Album.Genre.Rock)
+                    2 -> albumViewModel.listByGenre(Album.Genre.Blues)
+                    3 -> albumViewModel.listByGenre(Album.Genre.Jazz)
                     else -> genderNotValid()
                 }
             )
