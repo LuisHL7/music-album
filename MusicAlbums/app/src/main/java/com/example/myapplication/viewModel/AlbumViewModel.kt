@@ -9,20 +9,16 @@ import com.example.myapplication.model.getList
 
 class AlbumViewModel : ViewModel() {
 
-    private val listInit = MutableLiveData<MutableList<Album>>()
+
     val albumModel = MutableLiveData<Album>()
     val albumList = MutableLiveData<MutableList<Album>>()
 
-    init {
-        listInit.value = DataSource.listAlbum
-    }
-
-    private fun updateList(){
-        albumList.value = listInit.value
+    private fun loadList() {
+        albumList.value = DataSource.listAlbum
     }
 
     fun listByGenre(genre: Album.Genre): MutableList<Album> {
-        updateList()
+        loadList()
         val list = mutableListOf<Album>()
         for (i in 0 until albumList.value!!.size) {
             if (albumList.value!![i].genre == genre) {
@@ -33,15 +29,15 @@ class AlbumViewModel : ViewModel() {
         return albumList.value!!
     }
 
-    fun removeAlbum(album: Album){
+    fun removeAlbum(album: Album) {
         albumList.value!!
             .apply {
                 remove(album)
-                listInit.value!!.remove(album)
+                DataSource.listAlbum.remove(album)
             }
     }
 
-    fun reset(){
-        listInit.value= getList()
+    fun reset() {
+        DataSource.listAlbum = getList()
     }
 }
