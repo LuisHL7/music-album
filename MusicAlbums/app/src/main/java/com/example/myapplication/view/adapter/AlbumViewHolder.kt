@@ -14,11 +14,11 @@ class AlbumViewHolder(view: ItemListBinding) : RecyclerView.ViewHolder(view.root
 
     fun render(album: Album, albumViewModel: AlbumViewModel) {
         bindingItem.imageMusic.setImageResource(album.imageRes ?: IMAGE_NO_AVALIABLE_RESOURCE)
-        bindingItem.tvTitle.text = album.titulo
-        bindingItem.tvAuthor.text = album.autor
+        bindingItem.tvTitle.text = album.title
+        bindingItem.tvAuthor.text = album.author
 
         itemView.setOnClickListener {
-            albumViewModel.id.postValue(album.id)
+            albumViewModel.albumModel.postValue(album)
             binding.findNavController().navigate(AlbumListFragmentDirections.actionSecondFragmentToAlbumDetailFragment())
         }
 

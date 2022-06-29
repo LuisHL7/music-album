@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -37,7 +36,7 @@ class AlbumLibraryFragment : Fragment() {
         binding.spGenero.adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_list_item_1,
-            arrayOf("", *Album.Genero.values())
+            arrayOf("", *Album.Genre.values()) // recoge los valores del array y almacena sus valores
         ).apply { setDropDownViewResource(R.layout.item_spinner) }
 
 
@@ -45,9 +44,9 @@ class AlbumLibraryFragment : Fragment() {
         binding.btnIr.setOnClickListener {
             albumViewModel.genre.postValue(
                 when (binding.spGenero.selectedItemPosition) {
-                    1 -> Album.Genero.Rock
-                    2 -> Album.Genero.Blues
-                    3 -> Album.Genero.Jazz
+                    1 -> Album.Genre.Rock
+                    2 -> Album.Genre.Blues
+                    3 -> Album.Genre.Jazz
                     else -> genderNotValid()
                 }
             )

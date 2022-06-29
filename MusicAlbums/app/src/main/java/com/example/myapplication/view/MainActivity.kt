@@ -3,6 +3,7 @@ package com.example.myapplication.view
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -12,12 +13,14 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.viewModel.AlbumViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    private val albumViewModel by viewModels<AlbumViewModel>()
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,10 +49,10 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
          when (item.itemId) {
-            R.id.action_reset -> AlertDialog.Builder(this).setMessage("Se ha restaurado la biblioteca")
-                .setTitle("Reinicio").create().show()
-
+            R.id.action_reset -> AlertDialog.Builder(this).setMessage("The library has been restored")
+                .setTitle("Reset").create().show()
         }
+        albumViewModel.reset()
         return super.onOptionsItemSelected(item)
     }
 

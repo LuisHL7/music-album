@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentAlbumDetailBinding
 import com.example.myapplication.model.Album
+import com.example.myapplication.model.DataSource
 import com.example.myapplication.model.IMAGE_NO_AVALIABLE_RESOURCE
 import com.example.myapplication.viewModel.AlbumViewModel
 
@@ -30,14 +31,14 @@ class AlbumDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-            albumViewModel.id.observe(viewLifecycleOwner){ id ->
-                val album:Album? = albumViewModel.detailAlbum(id,albumViewModel.listAlbum(albumViewModel.genre.value!!))
-                binding.tvTitle.text = getString(R.string.title_author, album?.titulo, album?.autor)
-                binding.imageMusic.setImageResource(album?.imageRes ?: IMAGE_NO_AVALIABLE_RESOURCE)
-                binding.tvDescription.setText(album?.descRes!!)
+            albumViewModel.albumModel.observe(viewLifecycleOwner){ album ->
+                binding.tvTitle.text = album.toString()
+                binding.imageMusic.setImageResource(album.imageRes ?: IMAGE_NO_AVALIABLE_RESOURCE)
+                binding.tvDescription.setText(album.descRes)
 
                 binding.btnRemove.setOnClickListener {
-                    albumViewModel.listAlbum(albumViewModel.genre.value!!).remove(album)
+                    DataSource.listAlbum.remove(album)
+                    albumViewModel.albumList.value = DataSource.listAlbum
                     findNavController().popBackStack()
                 }
             }
