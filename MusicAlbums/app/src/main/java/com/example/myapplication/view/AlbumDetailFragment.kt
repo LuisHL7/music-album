@@ -36,7 +36,7 @@ class AlbumDetailFragment : Fragment() {
                 binding.tvDescription.setText(album.descRes)
 
                 binding.btnRemove.setOnClickListener {
-                    albumViewModel.albumList.value!!.remove(album)
+                    albumViewModel.removeAlbum(album)
 //                    findNavController().popBackStack()
                     findNavController().navigateUp()
                 }

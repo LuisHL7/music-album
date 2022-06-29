@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentAlbumLibraryBinding
 import com.example.myapplication.model.Album
+import com.example.myapplication.model.DataSource
 import com.example.myapplication.viewModel.AlbumViewModel
 
 
@@ -32,7 +33,6 @@ class AlbumLibraryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.spGenero.adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_list_item_1,
