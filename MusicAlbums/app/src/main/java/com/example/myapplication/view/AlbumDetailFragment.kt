@@ -1,7 +1,6 @@
 package com.example.myapplication.view
 
 import android.os.Bundle
-import android.system.Os.remove
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.databinding.FragmentAlbumDetailBinding
-import com.example.myapplication.model.DataSource
-import com.example.myapplication.model.IMAGE_NO_AVALIABLE_RESOURCE
+import com.example.myapplication.model.IMAGE_NO_AVAILABLE_RESOURCE
 import com.example.myapplication.viewModel.AlbumViewModel
 
 class AlbumDetailFragment : Fragment() {
@@ -32,7 +30,7 @@ class AlbumDetailFragment : Fragment() {
 
             albumViewModel.albumModel.observe(viewLifecycleOwner){ album ->
                 binding.tvTitle.text = album.toString()
-                binding.imageMusic.setImageResource(album.imageRes ?: IMAGE_NO_AVALIABLE_RESOURCE)
+                binding.imageMusic.setImageResource(album.imageRes ?: IMAGE_NO_AVAILABLE_RESOURCE)
                 binding.tvDescription.setText(album.descRes)
 
                 binding.btnRemove.setOnClickListener {

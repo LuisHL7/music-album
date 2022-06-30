@@ -2,7 +2,7 @@ package com.example.myapplication.model
 
 import com.example.myapplication.R
 
-val IMAGE_NO_AVALIABLE_RESOURCE = R.drawable.disco
+const val IMAGE_NO_AVAILABLE_RESOURCE = R.drawable.disco
 
 
 class Album(val id: Int, val title: String, val author: String, val genre: Genre, val imageRes: Int?, val descRes: Int) {

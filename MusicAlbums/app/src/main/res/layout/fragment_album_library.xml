@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.AlbumLibraryFragment"
-    android:background="#E18881">
+    android:background="#1E244C">
 
     <TextView
         android:id="@+id/txtBiblio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/library"
-        android:textSize="30sp"
+        android:textSize="40sp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,12 +45,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.104" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnIr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
         android:text="@string/go"
+        android:textSize="15sp"
+        android:textColor="@color/white"
         android:visibility="invisible"
+        app:backgroundTint="@color/purple_500"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/spGenero"
         app:layout_constraintTop_toBottomOf="@+id/spGenero"
