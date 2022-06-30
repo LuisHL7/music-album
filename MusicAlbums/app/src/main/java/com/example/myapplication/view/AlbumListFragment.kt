@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentAlbumListBinding
 import com.example.myapplication.view.adapter.AlbumAdapter
 import com.example.myapplication.viewModel.AlbumViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class AlbumListFragment : Fragment() {
 
@@ -42,8 +44,17 @@ class AlbumListFragment : Fragment() {
         val recyclerView = binding.recyclerAlbum
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         albumViewModel.albumList.observe(viewLifecycleOwner) {
-            recyclerView.adapter = AlbumAdapter(it, albumViewModel)
+            if(it.size == 0){
+                showMessageEmptyList()
+            } else {
+                recyclerView.adapter = AlbumAdapter(it, albumViewModel)
+            }
         }
     }
 
+    private fun showMessageEmptyList() = Snackbar.make(binding.root,
+        "There are no discs in the current selection", Snackbar.LENGTH_LONG)
+        .setAction("Return") {
+            findNavController().navigateUp()
+        }.show()
 }

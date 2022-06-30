@@ -20,7 +20,7 @@ class AlbumViewModel : ViewModel() {
     fun listByGenre(genre: Album.Genre): MutableList<Album> {
         loadList()
         val list = mutableListOf<Album>()
-        for (i in 0 until albumList.value!!.size) {
+        (0 until albumList.value!!.size).forEach { i ->
             if (albumList.value!![i].genre == genre) {
                 list.add(albumList.value!![i])
             }
