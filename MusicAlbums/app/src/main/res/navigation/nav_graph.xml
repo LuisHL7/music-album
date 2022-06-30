@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/albumDetailFragment"
         android:name="com.example.myapplication.view.AlbumDetailFragment"
-        android:label="fragment_album_detail"
+        android:label="Detail"
         tools:layout="@layout/fragment_album_detail" >
         <action
             android:id="@+id/action_albumDetailFragment_to_SecondFragment"
